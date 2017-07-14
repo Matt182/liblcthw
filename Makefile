@@ -34,7 +34,7 @@ tests: $(TESTS)
 	sh ./tests/runtests.sh
 
 clean:
-	rm -rf build $(OBJECTS) $(TESTS)
+	rm -rf build $(OBJECTS)
 	rm -f tests/tests.log
 	find . -name "*.gc" -exec rm {} \;
 	rm -rf `find . -name "*.dSYM" -print`
