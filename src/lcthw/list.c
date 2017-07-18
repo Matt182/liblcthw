@@ -119,3 +119,13 @@ void *List_remove(List * list, ListNode * node)
 error:
 	return result;
 }
+
+List *List_copy(List * list)
+{
+	List *new_list = List_create();
+	LIST_FOREACH(list, first, next, cur) {
+		List_push(new_list, cur->value);
+	}
+
+	return new_list;
+}

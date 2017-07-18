@@ -91,6 +91,26 @@ char *test_shift()
     return NULL;
 }
 
+char *test_copy()
+{
+	mu_assert(List_count(list) == 0, "List is not 0 at the begining of copy");
+	
+	List_push(list, test1);
+	List_push(list, test2);
+
+	List *new_list = List_copy(list);
+
+	mu_assert(List_count(new_list) == 2, "Copied list count is invalid.");
+	mu_assert(List_pop(new_list) == test2, "Last value of copied list is not valid");
+	mu_assert(List_pop(new_list) == test1, "First value of copied list is not valid.");
+	
+	List_clear_destroy(new_list);
+	List_pop(list);
+	List_pop(list);	
+
+	return NULL;
+}
+
 char *all_tests()
 {
     mu_suite_start();
@@ -100,6 +120,7 @@ char *all_tests()
     mu_run_test(test_unshift);
     mu_run_test(test_remove);
     mu_run_test(test_shift);
+	mu_run_test(test_copy);
     mu_run_test(test_destroy);
 
     return NULL;
