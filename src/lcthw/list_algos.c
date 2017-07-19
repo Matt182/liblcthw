@@ -34,12 +34,14 @@ int List_bubble_sort(List *list, List_compare cmp_f)
 
 List *List_merge_sort(List *list, List_compare cmp_f)
 {
-	int count = List_count(list);
-	if (count == 0 || count == 1) return List_copy(list);
+	List * new_list = List_copy(list);
+
+	int count = List_count(new_list);
+	if (count == 0 || count == 1) return new_list;
 
 	List *list1 = List_create();
 	List *list2 = List_create();
-	List_divide(list, list1, list2);
+	List_divide(new_list, list1, list2);
 	List *list1d = List_merge_sort(list1, cmp_f);
 	List *list2d = List_merge_sort(list2, cmp_f);
 	List *res = List_merge(list1d, list2d, cmp_f);
