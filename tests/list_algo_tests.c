@@ -2,6 +2,7 @@
 #include <lcthw/list_algos.h>
 #include <assert.h>
 #include <string.h>
+#include <time.h>
 
 char *values[] = { "XXXX", "1234", "abcd", "xjvef", "NDSS" };
 
@@ -69,12 +70,49 @@ char *test_merge_sort()
 	return NULL;
 }
 
+char *speed_test()
+{
+	List *word = NULL;
+	long long time = 0;
+	clock_t beg, end;
+
+	for (int i = 0; i < 1000; i++) {
+		word = create_words();
+		beg = clock();
+		List_bubble_sort(word, (List_compare) strcmp);
+		end = clock();
+		time += (end - beg);
+		end = 0;
+		beg = 0;
+		free(word);
+	}
+
+	printf("speed of bubble sort is %d/1000 (%f)\n", time, time/1000);
+
+	time = 0;
+	for (int i = 0; i < 1000; i++) {
+		word = create_words();
+		beg = clock();
+		List_merge_sort(word, (List_compare) strcmp);
+		end = clock();
+		time += (end - beg);
+		end = 0;
+		beg = 0;
+		free(word);	
+	}
+
+	printf("speed of metge sort is %d/1000 (%f)\n", time, time/1000);
+
+	return NULL;
+}
+
 char *all_tests()
 {
 	mu_suite_start();
 
 	mu_run_test(test_bubble_sort);
 	mu_run_test(test_merge_sort);
+	mu_run_test(speed_test);
 
 	return NULL;
 }

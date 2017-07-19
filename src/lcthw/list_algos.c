@@ -5,6 +5,11 @@
 
 void List_divide(List *list, List *list1, List *list2);
 List *List_merge(List *list1, List *list2, List_compare f);
+void ListNode_swap(ListNode *node1, ListNode *node2) {
+	void *temp = node1->value;
+	node1->value = node2->value;
+	node2->value = temp;	
+}
 
 int List_bubble_sort(List *list, List_compare cmp_f)
 {
@@ -19,12 +24,8 @@ int List_bubble_sort(List *list, List_compare cmp_f)
 		sorted = 1;
 		LIST_FOREACH(list, first, next, cur) {
 			if (cur->next && cmp_f(cur->value, cur->next->value) > 0) {
-				printf("in if\n");
 				sorted = 0;
-
-				temp = cur->value;
-				cur->value = cur->next->value;
-				cur->next->value = temp;
+				ListNode_swap(cur, cur->next);
 			}
 		}
 	} while (!sorted);
