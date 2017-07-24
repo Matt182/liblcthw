@@ -36,7 +36,7 @@ void DArray_clear_destroy(DArray *array);
 
 #define DEFAULT_EXPAND_RATE 300
 
-static inline void DArrey_set(DArray *array, int i, void *el);
+static inline void DArray_set(DArray *array, int i, void *el)
 {
 	check(i < array->max, "darray atemmpt to set past max");
 	if (i > array->end) array->end = i;
@@ -62,9 +62,9 @@ static inline void *DArray_remove(DArray *array, int i)
 
 static inline void *DArray_new(DArray *array)
 {
-	check(array->elemnt_size > 0, "CAn't use darray_new ion 0 size darrays");
+	check(array->element_size > 0, "CAn't use darray_new ion 0 size darrays");
 
-	return calloc(1, array->elemnt_size);
+	return calloc(1, array->element_size);
 
 error:
 	return NULL;

@@ -55,8 +55,14 @@ char *test_remove()
 {
 	int *val_check = DArray_remove(array, 0);
 	mu_assert(val_check != NULL, "Should not get NULL.");
-	mu_assert(*val_check == *val2, "Should get the first value.");
-	mu_assert(DArray_get(array, 1) == NULL, "Should be gone.");
+	mu_assert(*val_check == *val1, "Should get the first value.");
+	mu_assert(DArray_get(array, 0) == NULL, "Should be gone.");
+	DArray_free(val_check);
+
+	val_check = DArray_remove(array, 1);
+	mu_assert(val_check != NULL, "should not get Null.");
+	mu_assert(*val_check == *val2, "Should get thefirst value.");
+	mu_assert(DArray_get(array, 1) == NULL, "Should be gone");
 	DArray_free(val_check);
 
 	return NULL;
@@ -83,7 +89,7 @@ char *test_expand_contract()
 char *test_push_pop()
 {
 	int i = 0;
-	for (i = 0: i < 1000; i++) {
+	for (i = 0; i < 1000; i++) {
 		int *val = DArray_new(array);
 		*val = i * 333;
 		DArray_push(array, val);
@@ -92,7 +98,7 @@ char *test_push_pop()
 	mu_assert(array->max == 1201, "Wrong max size.");
 
 	for (i = 999; i >= 0; i--) {
-		int *val == DArray_pop(array);
+		int *val = DArray_pop(array);
 		mu_assert(val != NULL, "Shouldn't get a NULL.");
 		mu_assert(*val == i * 333, "Wrong value.");
 		DArray_free(val);
@@ -101,7 +107,7 @@ char *test_push_pop()
 	return NULL;
 }
 
-char *all_test()
+char *all_tests()
 {
 	mu_suite_start();
 
@@ -110,11 +116,11 @@ char *all_test()
 	mu_run_test(test_set);
 	mu_run_test(test_get);
 	mu_run_test(test_remove);
-	mu_run_test(test_expand_contact);
+	mu_run_test(test_expand_contract);
 	mu_run_test(test_push_pop);
 	mu_run_test(test_destroy);
 
 	return NULL;
 }
 
-RUN_TESTs(all_tests);
+RUN_TESTS(all_tests);
