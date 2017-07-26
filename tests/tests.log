@@ -1,0 +1,64 @@
+DEBUG tests/darray_tests.c:126: ----- RUNNING: ./tests/darray_tests
+DEBUG tests/darray_tests.c:114: 
+----- test_create
+DEBUG tests/darray_tests.c:115: 
+----- test_new
+DEBUG tests/darray_tests.c:116: 
+----- test_set
+DEBUG tests/darray_tests.c:117: 
+----- test_get
+DEBUG tests/darray_tests.c:118: 
+----- test_remove
+DEBUG tests/darray_tests.c:119: 
+----- test_expand_contract
+DEBUG tests/darray_tests.c:120: 
+----- test_push_pop
+DEBUG tests/darray_tests.c:121: 
+----- test_destroy
+DEBUG tests/hashmap_tests.c:117: ----- RUNNING: ./tests/hashmap_tests
+DEBUG tests/hashmap_tests.c:108: 
+----- test_create
+DEBUG tests/hashmap_tests.c:109: 
+----- test_get_set
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG tests/hashmap_tests.c:110: 
+----- test_traverse
+DEBUG tests/hashmap_tests.c:17: KEY: test data 3
+DEBUG tests/hashmap_tests.c:17: KEY: test data 1
+DEBUG tests/hashmap_tests.c:17: KEY: test data 2
+DEBUG tests/hashmap_tests.c:24: KEY: test data 3
+DEBUG tests/hashmap_tests.c:24: KEY: test data 1
+DEBUG tests/hashmap_tests.c:111: 
+----- test_delete
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG src/lcthw/hashmap.c:135: TRY: 0
+DEBUG tests/hashmap_tests.c:112: 
+----- test_destroy
+DEBUG tests/list_algo_tests.c:120: ----- RUNNING: ./tests/list_algo_tests
+DEBUG tests/list_algo_tests.c:113: 
+----- test_bubble_sort
+DEBUG tests/list_algo_tests.c:114: 
+----- test_merge_sort
+DEBUG tests/list_algo_tests.c:115: 
+----- speed_test
+DEBUG tests/list_tests.c:129: ----- RUNNING: ./tests/list_tests
+DEBUG tests/list_tests.c:118: 
+----- test_create
+DEBUG tests/list_tests.c:119: 
+----- test_push_pop
+DEBUG tests/list_tests.c:120: 
+----- test_unshift
+DEBUG tests/list_tests.c:121: 
+----- test_remove
+DEBUG tests/list_tests.c:122: 
+----- test_shift
+DEBUG tests/list_tests.c:123: 
+----- test_copy
+DEBUG tests/list_tests.c:124: 
+----- test_destroy
+DEBUG tests/radixmap_tests.c:102: ----- RUNNING: ./tests/radixmap_tests
+DEBUG tests/radixmap_tests.c:97: 
+----- test_operations
